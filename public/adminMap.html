@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maps</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script >
+    window.addEventListener("load",function(){
+        var socket=io.connect('http://192.168.1.43:1234');
+        var content=document.getElementById("map");
+        socket.on('map',function(data){
+            var inhtml='';
+            
+        inhtml=data.lat+"  "+data.long;
+            content.innerHTML=inhtml;
+        })
+    });
+    
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
